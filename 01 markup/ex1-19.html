@@ -5,22 +5,32 @@
     <title>표</title>
     <style>
         table {
-            width: 100%;
+            
+            width: 70%;
             border-collapse: collapse;
+
+            /* 중앙 정렬 */
+            margin : 0 auto ; 
+
         }
         td {
-            border: 1px solid #000;
-        }
-    </style>
+          
+          border: 1px solid #000;  
+          /*
+          text-align : center ; 
+          background-color: yellow;  
+          */ 
+      }
+  </style>
 </head>
 <body>   
     <table><!--표 정의-->
         <tr><!--1행-->            
-            <td>교과목</td><!--1행 1열-->
+            <td bgcolor="yellow">교과목</td><!--1행 1열-->
             <td>점수</td><!--1행 2열-->            
         </tr>
         <tr><!--2행-->           
-            <td>HTML</td><!--2행 1열-->
+            <td align="center">HTML</td><!--2행 1열-->
             <td>93</td><!--2행 2열-->                  
         </tr>
         <tr><!--3행-->            
