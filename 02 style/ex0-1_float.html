@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>float 속성 이해하기</title>
+    <style>
+      .d1 {
+        /*
+        border: 1px solid red; 
+        */
+        margin: 10px; /* 간격 */
+        width: 200px; /* 너비*/
+        height: 200px; /*블락 float left 성질*/
+        float: left;
+
+        box-shadow: 5px 5px 20px lightseagreen;
+      }
+      .clear {
+        clear: both; /* clear 사용은 일반적으로 both사용 */
+      }
+      #i1 {
+        width: 55%;
+        margin: 0 auto; /*여백*/
+      }
+    </style>
+  </head>
+  <body>
+    <h2 style="background-color: aqua; text-align: center">
+      float 속성 이해하기
+    </h2>
+    <hr color="green" />
+
+    <div id="i1">
+      <div class="d1"></div>
+      
+      <div class="d1"></div>
+      <div class="d1"></div>
+      <div class="d1"></div>
+
+      <div class="clear"></div>
+
+      <div class="d1"></div>
+      <div class="d1"></div>
+      <div class="d1"></div>
+      <div class="d1"></div>
+
+      <div class="clear"></div>
+
+      <div class="d1"></div>
+      <div class="d1"></div>
+      <div class="d1"></div>
+      <div class="d1"></div>
+
+      <div class="clear"></div>
+
+      <div class="d1"></div>
+      <div class="d1"></div>
+      <div class="d1"></div>
+      <div class="d1"></div>
+
+      <div class="clear"></div>
+
+      <div class="d1"></div>
+      <div class="d1"></div>
+      <div class="d1"></div>
+      <div class="d1"></div>
+
+      <div class="clear"></div>
+    </div>
+
+    <span> 마지막 내용 입니다. </span>
+  </body>
+</html>

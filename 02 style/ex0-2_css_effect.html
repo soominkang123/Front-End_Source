@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS의 효과</title>
+    <style>
+        .d1{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            margin : 20px;     /*4방향 적용 밑으로 값떨어짐*/
+
+            border-radius: 50px;   /* 사각형 네모퉁이를 둥글게 처리함*/
+            
+            float : left;  /* 블락태그의 빈공간을 왼쪽을 기준으로 채움(위로 옮김*/
+            
+            /*그림자 속성
+               수평거리(필수) 수직거리(필수) 번짐정도 색깔 외부효과
+            */
+            box-shadow: -10px 10px 10px cornflowerblue;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="d1"></div>
+    <div class="d1"></div>
+    <div class="d1"></div>
+    <div class="d1"></div>
+    <div class="d1"></div>
+    <div class="d1"></div>
+    <div class="d1"></div>
+
+</body>
+</html>
