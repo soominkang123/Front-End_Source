@@ -10,7 +10,7 @@
         border: 1px solid red;
         width: 95%;
         margin: 0 auto;
-        height: 850px;
+        height: 1000px;
       }
 
       header,
@@ -80,8 +80,22 @@
         background-color: gainsboro;
         margin: 10px;
       }
+
+      .ksh {
+        border: 1px solid red;
+        width: 50%;
+        float: left;
+      }
+      .ksh2 {
+        border: 1px solid red;
+        margin-left: 50%;
+        width: 49%;
+      }
+      .photo {
+        border: 1px solid red;
        
 
+      }
     </style>
   </head>
   <body>
@@ -104,16 +118,27 @@
 
       <aside>
         <article id="login box">
-          <img style="padding-left: 70px;padding-top: 10px;" id="login title" src="img/ttl_login.png" />
-          <div id="input button" style="padding-top: 5px; padding-bottom: 5px;">
-            <ul id="login input" style="float:left">
+          <img
+            style="padding-left: 70px; padding-top: 10px"
+            id="login title"
+            src="img/ttl_login.png"
+          />
+          <div id="input button" style="padding-top: 5px; padding-bottom: 5px">
+            <ul id="login input" style="float: left">
               <li><input type="text" /></li>
               <li><input type="password" /></li>
             </ul>
-            <img style="margin-left: 7px; margin-top: 20px;" id="login btn"src="img/btn_login.gif">
+            <img
+              style="margin-left: 7px; margin-top: 20px"
+              id="login btn"
+              src="img/btn_login.gif"
+            />
           </div>
           <div class="clear"></div>
-          <div id="join" style="padding-left: 70px; padding-top: 10px; padding-bottom: 10px;">
+          <div
+            id="join"
+            style="padding-left: 70px; padding-top: 10px; padding-bottom: 10px"
+          >
             <img src="img/btn_join.gif" />
             <img src="img/btn_search.gif" />
           </div>
@@ -121,7 +146,10 @@
 
         <article id="guestboard">
           <div id="guestboard_title">
-            <img style="margin-left: 50px ; margin-top: 7px;" src="img/ttl_memo.gif" />
+            <img
+              style="margin-left: 50px; margin-top: 7px"
+              src="img/ttl_memo.gif"
+            />
           </div>
           <ul>
             <li><img src="img/icon_blue.gif" />안녕하세요</li>
@@ -134,44 +162,103 @@
       </aside>
 
       <main>
-      
         <div>
           <img src="img/main_img.png" />
         </div>
 
         <div>
           <div class="ksh">
-            <img src="img/latest1.gif">
-         
-            <img style="margin:right 50px;" src="img/more.gif">
-            <img src="img/book_pen.gif">
-            <ul id = "list">
-              <li>
-                 <div class = "subject">루바토 개편과 사이트 이용 &nbsp;&nbsp;&nbsp;&nbsp;  2017-09-28</div>
-                 <div class = "subject">루바토 개편과 사이트 이용 &nbsp;&nbsp;&nbsp;&nbsp;  2017-09-28</div>
-                 <div class = "subject">루바토 개편과 사이트 이용 &nbsp;&nbsp;&nbsp;&nbsp;  2017-09-28</div>
-                 <div class = "subject">루바토 개편과 사이트 이용 &nbsp;&nbsp;&nbsp;&nbsp;  2017-09-28</div>
-                 <div class = "clear"></div>
-              </li>
-            </ul>
-            
+            <!-- 공지사항 -->
+            <div>
+              <div>
+                <img src="img/latest1.gif" />
+                <span style="margin-right: 70%"></span>
+                <img style="margin: right 50px" src="img/more.gif" />
+              </div>
+              <hr width="90%" />
 
-           
-           
+              <img
+                style="float: left; margin-right: 50px; height: 100px"
+                src="img/book_pen.gif"
+              />
+
+              <div style="width: 70%; margin-left:30%;">
+                <ul id="list">
+                  <li>
+                    루바토 개편과 사이트 이용 &nbsp;&nbsp;&nbsp;&nbsp;2017-09-28
+                  </li>
+                  <li>
+                    루바토 개편과 사이트 이용 &nbsp;&nbsp;&nbsp;&nbsp;2017-09-28
+                  </li>
+                  <li>
+                    루바토 개편과 사이트 이용 &nbsp;&nbsp;&nbsp;&nbsp;2017-09-28
+                  </li>
+                  <li>
+                    루바토 개편과 사이트 이용 &nbsp;&nbsp;&nbsp;&nbsp;2017-09-28
+                  </li>
+                </ul>
+                <div class="clear"></div>
+              </div>
+            </div>
+            <!-- 자유게시판 -->
+            <div>
+              <img src="img/latest2.gif">
+              <span style="margin-right: 70%"></span>
+              <img style="margin: right 50px" src="img/more.gif" />
+            </div>
+            <hr width="90%" />
+
+            <img
+                style="float: left; margin-right: 50px; height: 100px"
+                src="img/book_pen.gif"
+              />
+              <div style="width: 70%; margin-left:30%;">
+                <ul id="list">
+                  <li>까스롱 님의 선물인 보드카 &nbsp;&nbsp;&nbsp;&nbsp;2017-09-20
+                  </li>
+                  <li>까스롱 님의 선물인 보드카 &nbsp;&nbsp;&nbsp;&nbsp;2017-09-20
+                  </li>
+                  <li>까스롱 님의 선물인 보드카 &nbsp;&nbsp;&nbsp;&nbsp;2017-09-20
+                  </li>
+                  <li>까스롱 님의 선물인 보드카 &nbsp;&nbsp;&nbsp;&nbsp;2017-09-20
+                  </li>
+                </ul>
+              </div>  
+          </div>
+          
+          <div>
+          <div class="ksh2">
+            <div>
+              <img src="img/latest3.gif">
+              <span style="margin-right: 70%"></span>
+              <img style="margin: right 50px" src="img/more.gif" />
+            </div>
+            <hr width="90%" />
+            <img style="width: 70%; margin-left:20%;" src="img/bach.jpg">
+            </div> 
           </div>
         </div>
-      
-        <!-- 2.  2번째 블락 끝-->
-        <!-- 3. 포토 갤러리 시작 -->
+        <div class="clear"></div>
+              
         <div>
-
+          <div class="photo">
+            <div><img src="img/latest4.gif"></div>
+            <div>
+              <img style="width: 200px;margin-right: 5%;" src="img/img1.jpg">
+              <img style="width: 200px;margin-right: 5%;"src="img/img1.jpg">
+              <img style="width: 200px;" src="img/img1.jpg">
+            </div>
+          </div>
         </div>
-        <!-- 3. 포토 갤러리 끝 -->
-
+        
       </main>
       <div class="clear"></div>
 
-      <footer></footer>
+      <footer>
+        <div>
+
+        </div>
+      </footer>
     </div>
   </body>
 </html>
