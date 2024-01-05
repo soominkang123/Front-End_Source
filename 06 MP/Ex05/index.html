@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>기타 커뮤니티 - 인덱스 페이지</title>
+
+    <style>
+      #wrap {
+        border: 1px solid red;
+        width: 95%;
+        margin: 0 auto;
+        height: 850px;
+      }
+
+      header,
+      footer {
+        border: 1px solid blue;
+        height: 100px;
+      }
+      aside {
+        border: 1px solid red;
+        width: 20%;
+        height: 650px;
+        float: left;
+      }
+      /*  border: 1px solid red;
+        width: 20%;
+        height: 650px;
+        float: left;
+        */
+      main {
+        border: 1px solid red;
+        width: 78%;
+        height: 650px;
+        background-color: white;
+        margin-left: 20%;
+      }
+      .clear {
+        clear: both;
+      }
+      li {
+        list-style-type: none;
+        /* float: right; */
+      }
+
+      .c1 {
+        border: 1px solid red;
+        width: 300px;
+        float: left;
+      }
+      .c2 {
+        border: 1px solid red;
+        width: 700px;
+        align-content: right;
+      }
+      .c2 ul li {
+        float: left;
+      }
+      .c1-2 {
+        background-image: url("img/main_menu_bg.png");
+        background-repeat: no-repeat;
+
+        width: 1000px;
+        height: 30px;
+        padding: 10px;
+
+        color: white;
+        margin-left: 350px;
+        background-size: cover;
+        margin-top: 10px;
+      }
+      .c5 {
+        padding-left: 550px;
+        width: 800px;
+        text-align: right;
+      }
+      aside > article {
+        border-radius: 15px;
+        background-color: gainsboro;
+        margin: 10px;
+      }
+       
+
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <header>
+        <div>
+          <div class="c1"><img id = "logo"src=img/logo.png></div>
+          <div class="c2">
+            <div class="c5">HOME | LOGIN | JOIN | NOTICE</div>
+            <div class="c1-2">
+              &nbsp;&nbsp; 자유 게시판 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+              공지사항 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 공동 구매
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 연주회 안내
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 회원 게시판
+            </div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </header>
+
+      <aside>
+        <article id="login box">
+          <img style="padding-left: 70px;padding-top: 10px;" id="login title" src="img/ttl_login.png" />
+          <div id="input button" style="padding-top: 5px; padding-bottom: 5px;">
+            <ul id="login input" style="float:left">
+              <li><input type="text" /></li>
+              <li><input type="password" /></li>
+            </ul>
+            <img style="margin-left: 7px; margin-top: 20px;" id="login btn"src="img/btn_login.gif">
+          </div>
+          <div class="clear"></div>
+          <div id="join" style="padding-left: 70px; padding-top: 10px; padding-bottom: 10px;">
+            <img src="img/btn_join.gif" />
+            <img src="img/btn_search.gif" />
+          </div>
+        </article>
+
+        <article id="guestboard">
+          <div id="guestboard_title">
+            <img style="margin-left: 50px ; margin-top: 7px;" src="img/ttl_memo.gif" />
+          </div>
+          <ul>
+            <li><img src="img/icon_blue.gif" />안녕하세요</li>
+            <li><img src="img/icon_blue.gif" />안녕하세요</li>
+            <li><img src="img/icon_blue.gif" />안녕하세요</li>
+            <li><img src="img/icon_blue.gif" />안녕하세요</li>
+            <li><img src="img/icon_blue.gif" />안녕하세요</li>
+          </ul>
+        </article>
+      </aside>
+
+      <main>
+      
+        <div>
+          <img src="img/main_img.png" />
+        </div>
+
+        <div>
+          <div class="ksh">
+            <img src="img/latest1.gif">
+         
+            <img style="margin:right 50px;" src="img/more.gif">
+            <img src="img/book_pen.gif">
+            <ul id = "list">
+              <li>
+                 <div class = "subject">루바토 개편과 사이트 이용 &nbsp;&nbsp;&nbsp;&nbsp;  2017-09-28</div>
+                 <div class = "subject">루바토 개편과 사이트 이용 &nbsp;&nbsp;&nbsp;&nbsp;  2017-09-28</div>
+                 <div class = "subject">루바토 개편과 사이트 이용 &nbsp;&nbsp;&nbsp;&nbsp;  2017-09-28</div>
+                 <div class = "subject">루바토 개편과 사이트 이용 &nbsp;&nbsp;&nbsp;&nbsp;  2017-09-28</div>
+                 <div class = "clear"></div>
+              </li>
+            </ul>
+            
+
+           
+           
+          </div>
+        </div>
+      
+        <!-- 2.  2번째 블락 끝-->
+        <!-- 3. 포토 갤러리 시작 -->
+        <div>
+
+        </div>
+        <!-- 3. 포토 갤러리 끝 -->
+
+      </main>
+      <div class="clear"></div>
+
+      <footer></footer>
+    </div>
+  </body>
+</html>
