@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Position : Fixed</title>
+
+    <style>
+      header {
+        border: 1px solid red;
+        height: 100px;
+        width: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+      }
+
+      main {
+        margin-top: 100px;
+        height: 10000px;
+
+      }
+    </style>
+  </head>
+  <body>
+    <header>상 단 헤더 블락</header>
+    <main>
+      메인 블락
+
+      <div>오른쪽 중간에 항상 고정</div>
+    </main>
+
+    <footer>헤더 블락</footer>
+  </body>
+</html>

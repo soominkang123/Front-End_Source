@@ -8,7 +8,7 @@ body {
     color:#444444;
 }
 ul {
-    list-style-type:none;
+    list-style-type:none; /*ul li ●제거 모든 라인에적용*/
 }
 .clear {
     clear:both;
