@@ -10,16 +10,30 @@
         border: 1px solid red;
         height: 100px;
         width: 100%;
+        background-color: rgb(152, 238, 231);
         position: fixed;
         left: 0;
         top: 0;
       }
 
       main {
+        /* fixed header 고정될경우 , 블락이 없어서 
+           margin-top로 밑으로 밀어냄
+        */
+        background-color: rgb(235, 149, 209);
         margin-top: 100px;
         height: 10000px;
 
       }
+       .fixed {
+        position: fixed;
+        top: 25%;
+        right: 0px;
+        width: 100px;
+        height: 300px;
+        background-color: mediumseagreen;
+       }
+
     </style>
   </head>
   <body>
@@ -27,9 +41,9 @@
     <main>
       메인 블락
 
-      <div>오른쪽 중간에 항상 고정</div>
+      <div class = "fixed">오른쪽 중간에 항상 고정 (광고) </div>
     </main>
 
-    <footer>헤더 블락</footer>
+    <footer>푸더 블락</footer>
   </body>
 </html>
