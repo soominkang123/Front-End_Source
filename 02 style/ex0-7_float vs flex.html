@@ -60,6 +60,42 @@
         align-items: center;
         height: 200px;
       }
+      .c5{
+        display: flex;
+        justify-content: space-evenly;
+        
+        
+        
+        /* 기본 옵션 */
+        flex-wrap: nowrap; 
+        border: 1px solid red;
+        height: 400px;
+      }
+      .c5 div{
+        border: 1px solid red;
+        background-color: aqua;
+        width: 300px;
+        height: 300px;
+      }
+      .c6{
+        display: flex;
+        justify-content: space-evenly;
+        
+        align-items: center;
+        
+        /* 박스 크기에 맞게 아래로 떨어뜨림 */
+        flex-wrap: wrap; 
+
+        border: 1px solid red;
+        height: 800px;
+
+      }
+      .c6 div{
+        border: 1px solid red;
+        background-color: aqua;
+        width: 300px;
+        height: 300px;
+      }
     </style>
   </head>
 
@@ -150,6 +186,42 @@
       <br />
       <br />
       <br />
+
+      <hr />
+      <h2>display : flex - align-items : center (수직 정렬) flex-wrap : nowrap</h2>
+      <hr />
+      <br />
+      <br />
+      <br />
+      <div class="c5">
+        <div>박스1</div>
+        <div>박스2</div>
+        <div>박스3</div>
+        <div>박스4</div>
+        <div>박스5</div>
+      </div>
+
+      <br />
+      <br />
+      <br />
     </div>
+
+    <hr />
+    <h2>display : flex - align-items : center (수직 정렬) flex-wrap : wrap</h2>
+    <hr />
+    <br />
+    <br />
+    <br />
+    <div class="c6">
+      <div>박스1</div>
+      <div>박스2</div>
+      <div>박스3</div>
+      <div>박스4</div>
+      <div>박스5</div>
+    </div>
+
+    <br />
+    <br />
+    <br />
   </body>
 </html>
