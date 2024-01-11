@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 자바 스크립트 블락 : HTML, CSS , JS (프포그래밍)
+    </script>
+</head>
+<body>
+    <script> 
+        // 변수 선언 
+        var globalValue1 ;    //변수명에 var
+        var globalValue2 ;    //var 생략 
+
+
+            globalValue2= "문자열"; 
+        // 함수 :  함수명 앞에 리턴 타입이 없다. 
+        function abc() {
+            var locValue;   // 지역 변수 : 
+            var globalValue3 ;   //지역 변수블락에서 var를 생략 하면 전역 변수가됨 
+
+            localValue = 10 ; 
+            globalValue1 = 20 ; 
+            document.write("localValue : " + localValue + "<p>"); 
+            document.write("globalValue2 : " + globalValue1 + "<p>"); 
+        }
+
+        // 함수 호출 
+        abc();  
+        document.write ("=============== <p> " )
+        // 전역 변수 출력 
+        globalValue1 = "홍길동"; 
+        document.write ("globalValue1 : " + globalValue1  + "<p>"); 
+
+        // 로컬 변수 
+        localValue = 77; 
+        document.write ("localValue : " +  localValue + "<p>" ); 
+
+        document.write ("===============" )
+
+
+        // 동일한 변수명으로 새롭게 선언해도 오류가 발생 되지 않는다. 
+            // var 의 문제점 
+        var globalValue1 ; 
+        var globalValue1 ; 
+        var globalValue1 ; 
+
+        // let : 동일한 이름으로 재선언이 안됨 
+        //     - 함수 블락 내부에서 선언한것은 함수 블락에서만 작동됨 
+        let gvalue1 ; 
+  //      let gvalue1 ;   
+  
+        // var, let 변수명 
+            gvalue1 = 10; 
+            gvalue1 = 50; 
+
+ //       let gvalue1 ; 
+
+        //const : 상수 선언 - 반드시 초기값이 할당 되어야 됨. 
+        const ab = 3.14 ;  
+        
+//       ab = 50; 
+
+        document.write( "<p> ab : " + ab + "<p>"); 
+        document.write ("======================<p>"); 
+
+        function abcde () {
+            let local1 ; 
+            local1 = "홍길동"; 
+
+        }
+
+        // 오류 발생 부분 : 지역 변수를 외부에서 사용하면 오류 발생 :let
+ //       document.write("local1 : " + local1 + "<p>");
+        const BB  = 1000  ; 
+
+  //       BB = 3000; 
+
+    </script>
+
+
+
+    
+</body>
+</html>

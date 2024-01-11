@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        * {
+            background-color: aqua;
+        }
+        div {
+            width : 100px; 
+            height:100px; 
+            background-color: gold;
+        }
+        .c1 {
+            background-color: blue;
+        }
+
+        #i1 {
+            background-color: brown;
+        }
+
+        .d3 {
+            background-color: chartreuse !important;
+        }
+    
+    </style>
+</head>
+<body>
+    <h2> 선택자에 따라서 충돌 발생시 우선순위 : * (전체) , 태그, class , id , 인라인(태그내부) </h2>
+    <hr> 
+    <h4> *  &lt;   태그  &lt;   class    &lt;  id    &lt;  인라인(태그내부)     &lt;   !important ; </h4>
+    <hr> 
+
+
+    <!-- 충돌 : 태그선택자 -->
+    <div> 박스 1 </div>
+
+    <!-- 충돌 : * , 태그, class  -->
+    <div class = "c1"> 박스 2 </div>
+
+    <!-- 충돌 : * , 태그, class, id  -->
+    <div class="c1" id ="i1"> 박스 3 </div>
+
+    <!-- 충돌 : * , 태그, class, id , 인라인(태그내부) -->
+    <div class="c1" id ="i1" style="background-color: magenta;"> 박스 4 </div>
+ 
+    <!-- 충돌 : * , 태그, class, id , 인라인(태그내부) , !important -->
+    <div class="c1 d3" id ="i1" style="background-color: magenta;"> 박스 5 </div>
+
+
+    
+</body>
+</html>

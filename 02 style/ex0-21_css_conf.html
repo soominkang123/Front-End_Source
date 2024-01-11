@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 의 충돌 </title>
+    <!-- 외부 파일의 스타일을 불러 들임 -->
+    <link rel="stylesheet" href ="external.css">
+
+    <!-- 문서 내부에 스타일을 적용 -->
+    <style> 
+        div {
+            background-color: yellow;
+        }
+
+        div {
+            background-color: blue !important;
+        }
+    </style>
+</head>
+<body>
+    <h2> css 가 충돌이 생기는 경우 </h2>
+    <hr> 
+    <h4> 외부 스타일 &lt; 내부 스타일 &lt; 인라인(태그) 스타일   </h4>
+    
+    <!-- 태그 블락 내부에 적용됨 :  -->
+    <div style ="background-color: gold; "> 박스 1 </div>
+
+
+</body>
+</html>

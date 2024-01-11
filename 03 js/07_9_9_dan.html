@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        table , tr, td {
+            border : 1px solid black; 
+            border-collapse: collapse;
+            padding : 10px; 
+        }
+    
+    
+    </style>
+
+
+    <script> 
+        document.write (" body 에 출력됨 ")
+        let tag ; 
+        function gogodan() {
+
+            tag = '<table align ="center"> '
+            for ( let i = 1 ; i <=9 ; i++) {
+              tag += "<tr> " 
+              tag += "<td>" + i +" 단 " + "</td>"
+                for ( let j = 1 ; j <= 9 ; j++){
+                    tag += "<td> " + i + " * " + j + " = " + i * j +"</td>"
+                }            
+               tag += "</tr> "
+            }
+            tag += "</table> "
+        }
+
+    </script>
+</head>
+<body>
+    <h2> 구구단 출력 </h2>
+    <hr> 
+
+    <script> 
+        //함수 호출 
+        gogodan(); 
+        //출력 
+        console.log (tag); 
+        document.write (tag); 
+    </script>
+
+    
+</body>
+</html>

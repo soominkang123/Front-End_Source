@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //전역 변수 선언 
+        let kor , eng , math, sum ; 
+        let avg ; 
+
+        function stuAvg( a , b, c) {
+            kor = a ; 
+            eng = b ; 
+            math = c ; 
+
+            sum = kor + eng + math ; 
+            avg = sum / 3.0 ; 
+            return avg ; 
+        }
+
+        document.write ( "당신의 평균 점수는 : " + stuAvg(55, 66, 77) )
+        console.log ("당신의 평균 점수는 : " + stuAvg(55, 66, 77))
+
+    </script>
+
+    
+</body>
+</html>
