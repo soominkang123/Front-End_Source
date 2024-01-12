@@ -3,46 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>회원가입 폼</title>
+    <style>
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <form name="foutlogin" action="https://allbakery.co.kr/bbs/login_check.php" onsubmit="return fhead_submit(this);" method="post" autocomplete="off">
-        <input type="hidden" name="url" value="%2F">
-        <ul class="logInList">
-            <li>
-                <div class="formItem">
-                    <div class="inputArea">
-                        <input type="text" class="inpText" placeholder="아이디를 입력해주세요" name="mb_id" id="ol_id">
-                        <span class="inpItem">
-							<a href="#" class="btnInpCancel">입력 취소</a>
-						</span>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="formItem">
-                    <div class="inputArea">
-                        <input type="password" class="inpText" placeholder="비밀번호를 입력해주세요" id="ol_pw" name="mb_password">
-                        <span class="inpItem">
-							<a href="#" class="btnInpCancel">입력 취소</a>
-						</span>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        <div class="idSave">
-            <div class="inputCheckbox type02 reversal">
-                <input type="checkbox" id="auto_login" name="auto_login" >
-                <label for="auto_login" id="auto_login_label">아이디 저장</label>
-            </div>
-        </div>
-        <div class="btnArea">
-            <button type="submit" id="ol_submit" class="btn btnCol02"><span>로그인</span></button>
-        </div>
-        <ul class="logInEtc">
-            <li><a href="https://allbakery.co.kr/bbs/register.php"><strong>회원가입</strong></a></li>
-            <li><a href="https://allbakery.co.kr/bbs/password_lost.php" id="ol_password_lost"><span>아이디/비밀번호 찾기</span></a></li>
-        </ul>
+
+    <form action="#" method="post">
+        <label for="id">아이디</label>
+        <input type="text" id="id" name="id" required>
+        <button type="button" onclick="checkDuplicate()">아이디 중복확인</button>
+
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="confirmPassword">비밀번호 확인</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+        <label for="name">이름</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="phone">전화번호</label>
+        <input type="tel" id="phone" name="phone" placeholder="010-1234-5678" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required>
+
+        <label for="email">이메일주소</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="birthdate">생년월일</label>
+        <select id="year" name="year">
+            <!-- 생년월일 년도 옵션 추가 -->
+            <!-- 예시로 1950년부터 2022년까지를 넣었으나, 실제로는 필요에 따라 수정이 필요합니다. -->
+            <?php
+                for ($year = 1950; $year <= 2022; $year++) {
+                    echo "<option value=\"$year\">$year</option>";
+                }
+            ?>
+        </select>
+        <select id="month" name="month">
+            <!-- 생년월일 월 옵션 추가 -->
+            <?php
+                for ($month = 1; $month <= 12; $month++) {
+                    echo "<option value=\"$month\">$month</option>";
+                }
+            ?>
+        </select>
+        <select id="day" name="day">
+            <!-- 생년월일 일 옵션 추가 -->
+            <?php
+                for ($day = 1; $day <= 31; $day++) {
+                    echo "<option value=\"$day\">$day</option>";
+                }
+            ?>
+        </select>
+
+        <button type="submit">가입하기</button>
     </form>
+
+    <script>
+        function checkDuplicate() {
+            // 중복확인 기능을 구현할 JavaScript 코드를 추가할 수 있습니다.
+            alert('아이디 중복확인 기능이 실행됩니다.');
+        }
+    </script>
+
 </body>
 </html>
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="hd_wrapper">
+    	<div id="hd_wr">
+	        <div id="logo"><a href="https://allbakery.co.kr/shop/"><img src="https://allbakery.co.kr/theme/market/img/logo.png" alt="카페베이커리ㅣ올베이커리"></a></div>
+			<div class="hd_sch_area">
+				<fieldset id="hd_sch">
+					<legend>쇼핑몰 전체검색</legend>
+					<form name="frmsearch1" action="https://allbakery.co.kr/shop/search.php" onsubmit="return search_submit(this);">
+						<label for="sch_stx" class="sound_only">검색어 필수</label>
+						<div class="sch_ipt">
+							<label for="sch_str" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
+							<input type="text" name="q" class="sch_stx" value="" id="sch_str" required placeholder="검색어를 입력해주세요">
+							<button type="submit" id="sch_submit"><img src="https://allbakery.co.kr/theme/market/img/icon_Search_B.png" alt=""></button>
+						</div>
+					</form>
+				</fieldset>
+				<script>
+					function search_submit(f) {
+						if (f.q.value.length < 2) {
+							alert("검색어는 두글자 이상 입력하십시오.");
+							f.q.select();
+							f.q.focus();
+							return false;
+						}
+						return true;
+					}
+				</script>
+			</div>
+			<div id="hd_qnb">
+				<ul>
+										<li><button class="login_btn">로그인</button></li>
+					<li><a href="https://allbakery.co.kr/bbs/register.php" class="logout_btn join_btn">회원가입</a></li>
+									</ul>
+				<div id="member_menu">
+					<div class="member_div">
+						<aside id="ol_before" class="ol">
+</body>
+</html>
