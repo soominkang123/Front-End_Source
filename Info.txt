@@ -176,7 +176,209 @@ BackEnd : 비즈니스 로직 처리 , DataBase (Oracle, MySQL, MariaDB, .....) 
 	https://aws.amazon.com/ko/free/	<== AWS 계정 생성, 신용카드
 	https://sujinisacat.tistory.com/12	<== 블로그 
 
+https://lrl.kr/wmAs	  <== 업로드[ ppt ]   
+https://aws.amazon.com/
 
+cloud  서비스 : 인터넷에서 서버를 구매 , 
+   - AWS : Amazone 	1위
+   - Azure : Microsoft 	2위
+   - GCP : Google 		3위 
+
+https://code.jquery.com/jquery-3.7.1.min.js
+
+https://getbootstrap.kr/	<== 부트 스트랩 
+https://www.startbootstrap.com/	<== 부트스트랩 무료 템플릿 사이트 
+
+
+https://aws.amazon.com/
+
+VM (서버)
+ - Windows Server 2019, 2022
+ - Linux ( Ubuntu , CentOS (Locky Linux))
+
+ AWS 프리티어 : 12달 동안 무료
+ AWS 리젼 : 전 세계의 DataCenter 의 위치(서울)
+
+ Cloud Service : AWS 약 140개 정도의 서비스 
+     - IaaS : AWS EC2 ( VM )
+	 - Paas : AWS RDS
+	 - Saas : M365 (office)
+
+인스턴스 (VM) 만들기
+1. 이름 : WS2022
+2. OS Image : Windows Server 2022 base (프리티어)
+3. 인스턴스 유형 : t2.micro : cpu 1, ram : 1GB(프리티어)
+4. 키 페어 : 로그인시 사용, 암호화 파일을 다운 
+      - WS2022-key
+	  - 암호화 유형 : RSA 
+	  - 파일 확장자 : pem  
+5. 네트워크 설정 : 
+   - 1. VPC : 기본 값 : 172.31.0.0 / 16
+   - 2. 서브넷 : 가용영역 : ap-northeast-2a : 172.31.0.0 / 20
+   - 3. 퍼블릭 IP : 활성화 <== 공인 IP 할당됨
+   - 4. 보안그룹 생성 - (AWS 의 방화벽)
+
+6. 고급 네트워크 설정 : 기본 IP 172.31.0.100
+
+7. 스토리지 구성 :
+  - 30GB <== 프리티어(무료)
+
+<인스턴스 생성>
+
+8. 원격 서버에 접속
+  1. 인스턴스 클릭 ==> 연결 (상단) ==> RDP 클라이언트 (클릭)
+     ==> 원격 데스크톱 파일 다운로드 => 암호 가져오기 (클릭) *.pem
+	 ==> 해독하기
+
+-- OpenSSH가 설치, 방화벽 : TCP 22 번 오픈
+-- JDK 설치(JDK 17), 톰켓 설치 (Tomcat10.1)
+-- local 에서 개발 된 내용을 배포(*.war) ==> 서버의 톰켓에 업로드
+-- SFTP를 사용해서 local 의 배포된 ( *.war ) == 서버로 전송
+
+-- Oracle DB 설치    <==
+-- 로컬의 파일을 서버로 업로드
+
+Windows Server 2022에 OpenSSH 설치 
+<== powerShell(관리자 모드로)
+====================================================================
+[1] Run PowerShell with Admin Privilege and Configure SSH Server.
+# get available name of OpenSSH
+PS C:\Users\Administrator> Get-WindowsCapability -Online | ? Name -like 'OpenSSH*' 
+
+Name  : OpenSSH.Client~~~~0.0.1.0
+State : Installed
+
+Name  : OpenSSH.Server~~~~0.0.1.0
+State : NotPresent
+
+# install OpenSSH Server
+PS C:\Users\Administrator> Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0 
+
+Path          :
+Online        : True
+RestartNeeded : False
+
+# Reboot 
+PS C:\Users\Administrator>Restart-computer -Force 
+
+
+# start sshd service
+PS C:\Users\Administrator> Start-Service -Name "sshd" 
+
+# set [Automatic] for Startup
+PS C:\Users\Administrator> Set-Service -Name "sshd" -StartupType Automatic 
+
+# verify settings
+PS C:\Users\Administrator> Get-Service -Name "sshd" | Select-Object * 
+
+Name                : sshd
+RequiredServices    : {}
+CanPauseAndContinue : False
+CanShutdown         : False
+CanStop             : True
+DisplayName         : OpenSSH SSH Server
+DependentServices   : {}
+MachineName         : .
+ServiceName         : sshd
+ServicesDependedOn  : {}
+ServiceHandle       : SafeServiceHandle
+Status              : Running
+ServiceType         : Win32OwnProcess
+StartType           : Automatic
+Site                :
+Container           :
+
+
+# if Windows Firewall is running, allow 22/TCP
+# however, 22/TCP is generally allowed by OpenSSH installer, so it does not need to do the follows manually
+PS C:\Users\Administrator> New-NetFirewallRule -Name "SSH" `
+-DisplayName "SSH" `
+-Description "Allow SSH" `
+-Profile Any `
+-Direction Inbound `
+-Action Allow `
+-Protocol TCP `
+-Program Any `
+-LocalAddress Any `
+-RemoteAddress Any `
+-LocalPort 22 `
+-RemotePort Any 
+
+
+
+Name                          : SSH
+DisplayName                   : SSH
+Description                   : Allow SSH
+DisplayGroup                  :
+Group                         :
+Enabled                       : True
+Profile                       : Any
+Platform                      : {}
+Direction                     : Inbound
+Action                        : Allow
+EdgeTraversalPolicy           : Block
+LooseSourceMapping            : False
+LocalOnlyMapping              : False
+Owner                         :
+PrimaryStatus                 : OK
+Status                        : The rule was parsed successfully from the store. (65536)
+EnforcementStatus             : NotApplicable
+PolicyStoreSource             : PersistentStore
+PolicyStoreSourceType         : Local
+RemoteDynamicKeywordAddresses : {}
+
+==================================================
+=====================================================================
+
+1, OpenSSH Server 설치, 서비스 시작, 부팅시 자동으로 서비스 시작
+2. AWS의 TCP 22 포트의 방화벽 오픈 
+   - 해당 인스턴스 클릭 ==> 보안(클릭) => 보안 그룹 (클릭)
+   - 인바운드 규칙 :   
+      - SSH 서비스 등록 : TCP 22, Anyware IPv4 
+      - HTTP           : TCP 80, Anyware IPv4 
+      - HTTPS          : TCP 443, Anyware IPv4 
+      - ORacle-RDP     : TCP 1521, Anyware IPv4 
+	  - My-SQL         : TCP 3306, Anyware IPv4 
+	  - MS-SQL         : TVP 1433, Anyware IPv4 
+
+3. File-Zillar 에서 local 의 JDK 17, Tomcat10.1 을 서버로 전송 ( SFTP )
+
+4. JDK 17 설치 
+
+5. Tomcat 10.1 설치 : TCP 80 포트로 설치
+      - PowerShell (관리자 모드)
+	  - 서비스 시작            : Start-Service -Name "Tomcat10"
+	  - 서비스 중지            : Stop-Service -Name "Tomcat10"
+	  - 서비스 다시시작        : Restart-Service -Name "Tomcat10"
+	  - 서비스 부팅시 자동 시작 : Set-Service -Name "Tomcat10" -StartupType Automatic 
+      - 서비스 상태 보기        : Get-Service -Name "Tomcat10" | Select-Object * 
+
+      - AWS 방화벽 : TCP 80 
+	  - Windows Server 의 방화벽 오픈(wf.msc) : TCP 80 
+
+6. JSP 로 개발된 프로잭트를 배포
+     - WAR - 외장 톰켓에 배포, JSP 
+	 - JAR - 내부에 톰켓이 내장  , Spring Boot 
+
+	 이클립스 ==> 프로잭트 (오른쪽클릭) ==> export ==> war file
+
+     프로잭트명.war   <== 프로잭트 배포 파일 
+
+	 서버의 Tomcat10.1 설치된 폴더의 webbapp 폴더에 넣어줌.
+	 Tomcat 서비스를 다시시작  
+======================================================================================
+AWS : WS2012_VM
+      인스턴스 유형 : t2 micro 
+	  VM 의 사설 IP : 172.31.0.200
+	  public IP : 활성화 
+
+      SSH - Server 설치
+	  JDK17, Tomcat10.1	 
+
+	  local 의 프로잭트 , mall
+	      war 배포
+	  
+	  원격 공인 IP 
 
 
 
