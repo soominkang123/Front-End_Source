@@ -378,11 +378,107 @@ AWS : WS2012_VM
 	  local 의 프로잭트 , mall
 	      war 배포
 	  
-	  원격 공인 IP 
+	  원격 공인 IP : 프로잭트 출력
+	  ===============================================================================
+
+원격 접속 :
+   - Windows Server : RDP (TCP 3389) : GUI 관리
+   - Linux ( Ubuntu, RedHat(CentOS) CentOS) : SSH ( TCP 22 ) : TUI 관리 , Putty, MobaXTerm ( 서버가 많을때)
+       Ubuntu-VM - 
+	        공인 IP : 43.203.181.248
+			사설IP  : 172.31.210
+			username : ubuntu
+       RedHat-VM :
+	        공인 IP : 3.34.196.187
+			사설IP  : 172.31.220
+			username : ec2-user
+	   Amazon-VM :
+	   		공인 IP : 13.124.231.237
+			사설IP  : 172.30.230
+			username : ec2-user 
+===================================================================================================================
+
+배포 -
+   AWS 배포된    : 공인 IP, VM (Windows, Linux)  <== 프리티어 (cpu 1 , RAM) 1GB
+           - 글로벌 하게 서비스
+   Local VM 배포 : 사설 IP, VM ( Windows , Linux ) <== cpu, ram <== HostOS 자원 
+           - 자신 시스템에서만 테스트 
+
+ 가상화 : HardWare (CPU , RAM , HDD , LAN) 을 추상화 해서 OS 가 공유 해서 사용
+    - Type 1 - 운영 환경에서 사용 , Hyper-V, vSpawre , Xex 
+	- Type 2 - 테스트, 교육 , VMware Player , VMWare Workstation, 페러럴즈(맥) , VirtualBox
+
+Hyper-V : Windows 10, 11 Pro 버젼에서 사용 가능 , msinfo32 (운영체제 버젼), 작업관리자 ( CPU : 가상화 : 사용)
+
+ - 설치 
+       설정 => 앱 => 프로그램 및 기능 => windows 기능 켜기/끄기
+	   Hyper-V (모든 항목 체크)=> 확인 => 리부팅
+
+Hyper-V 환경에서 VM(Viral Machine) 생성
+  1. Windows Server 2022 , Windows 11 (3개월) 
+    - 2세대 VM 
+	- vCPU : 2개 이상 
+	- TPM : 활성화  
+
+	Edtion  
+	   - Standard                       <= TUI
+	   - Standard (DeskTop Exprience)   <= GUI
+	   - EnterPrise                     <= TUI
+	   - EnterPrise (Desktop EXprience) <= GUI    <= 설치
+
+   이름 : WS2022
+   세대 : 2세대
+   메모리 :8069mb (8GB)
+   네트워크 : Default Switch
+   하드디스크 : WS2022.vhdx , 127GB
+   운영체제 cd : 나중에 등록
+
+   WS2022 VM - 설정
+    - 프로세서 : vCPU : 4
+	- 보안     : TPM (체크)
+	- 하드웨어 추가 : SCSI 컨트롤러 (추가) - DVD 장치 추가 (WS2022_Eval.iso)
+    - 펌웨어 : DVD 드라이브를 제일위로 이동
 
 
+   설치
+      1. 첫 화면 : 한글사용, Time Currency Format : < korea >
+	  2. install(클릭)
+      3. <<주의>> Windows Server 2022 Datacenter Evaluation (Desktop Exprience) <== 선택
+	             (6개월)
+	  4. 라이센스 동의
+	  5. Cystom : install  <== 주의 
+	  6. 다음:
+	     하드가 c:\ <== OS 설치
+	  7. administrator 계정의 암호를 부여 : 암호 복잡성 요구 : 6자이상 대문자, 소문자, 특수문자 , 숫자 
+	     Pa55w.rd
+      
+    1. 한글 언어팩 설치
+	2. OpenSSH Server 설치, 방화벽 오픈 : wf.msc ==> TCP22
+    2-1 고정 IP Setting : ipconfig/all , ncpa.cpl
+	   IP :       172.31.162.100
+	   Subnet Mask : 255.255.250.0
+	   Default Gateway : 172.31.160.1
+	   DNS Server : 172.31.160.1
 
+	3. JDK 설치, 톰캣 설치
+	4. Oracle XE 21C 설치
+	5. 원격의 오라클의 테이블 생성
+	6. 개발된 local war 파일을 서버로 전송
 
+	==============================================================
+
+	3Tier 환경 : 확장성 고려한 서버 구성
+	   Web (Nginx)  WAS(Tomcat, webspare...)   DB(Oracle)  
+
+	WS2022 : Web (Tomcat) , TCP 80 <== *.war
+	WS2019 : DB (Oracle) , TCP 1521
+
+	Host OS : Oracle 21C
+	     IP : 172.31.160.1
+		 방화벽 : TCP 1521
+		 
+
+	     
 
 
 
