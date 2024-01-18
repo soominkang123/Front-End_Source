@@ -245,6 +245,8 @@ Windows Server 2022에 OpenSSH 설치
 # get available name of OpenSSH
 PS C:\Users\Administrator> Get-WindowsCapability -Online | ? Name -like 'OpenSSH*' 
 
+Get-WindowsCapability -Online | ? Name -like 'OpenSSH*' //ssh 확인할때이거쓰기 1
+
 Name  : OpenSSH.Client~~~~0.0.1.0
 State : Installed
 
@@ -254,12 +256,14 @@ State : NotPresent
 # install OpenSSH Server
 PS C:\Users\Administrator> Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0 
 
+Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0    //2번
+
 Path          :
 Online        : True
 RestartNeeded : False
 
 # Reboot 
-PS C:\Users\Administrator>Restart-computer -Force 
+PS C:\Users\Administrator>     Restart-computer -Force 
 
 
 # start sshd service
@@ -476,11 +480,79 @@ Hyper-V 환경에서 VM(Viral Machine) 생성
 	Host OS : Oracle 21C
 	     IP : 172.31.160.1
 		 방화벽 : TCP 1521
+
+===========================================================================
+
+HostOS 와 VM과 통신 하는 네트워크 : Default Switch
+    - Hyper-V 설치 : Host OS 에서 Default Switch 가상 네트워크가 생성
+	- Ncpa.cpl
+	- Default Switch : Gatewaym NAT, DHCP, DNS
+	    IP  : 172.31.100.1
+		S/M : 255.255.255.0
+
+WS2022
+    IP  : 172.31.100.10
+    S/M : 255.255.255.0
+	g/w : 172.31.100.1
+	dns : 172.31.100.1
+
+WS2019
+    IP  : 172.31.100.20
+    S/M : 255.255.255.0
+	g/w : 172.31.100.1
+	dns : 172.31.100.1
+
 		 
-
+Ubuntu
+    IP  : 172.31.100.30
+    S/M : 255.255.255.0
+	g/w : 172.31.100.1
+	dns : 172.31.100.1
 	     
+Rocky( RedHat, CentOS )
+    IP  : 172.31.100.10
+    S/M : 255.255.255.0
+	g/w : 172.31.100.1
+	dns : 172.31.100.1
 
+=====================================================================
+RedHat Linux , CentOS ===> Rocky Linux 
+   - 설치시 네트워크 카드 활성화	
+   
+   - systemctl status sshd   <== sshd 작동중인지 확인 , 설치되어 있음.
 
+Ubuntu Linux 는 설치X
+
+sudo apt update
+	sudo apt install openssh-server
+	sudo systemctl status ssh
+	sudo systemctl enable ssh
+	sudo systemctl start ssh
+
+Hyper-V 에서 VM의 네트워크 고정 시키기  <== Host 에서 PowerShell 관리자 모드에서
+
+New-VMSwitch -SwitchName "NAT-Switch" -SwitchType Internal
+New-NetIPAddress -IPAddress 10.10.10.1 -PrefixLength 24 -InterfaceAlias "vEthernet (NAT-Switch)"
+New-NetNat -Name NAT-Swtich -InternalIPInterfaceAddressPrefix 10.10.10.0/24
+
+- 모든 VM의 랜카드 : NAT-Switch 로 설정 
+
+고정 IP 셋팅
+WS2022(10) , WS2019(20)    Ubuntu(30) Rocky(40) <nmtui
+
+Rocky
+nmtui
+주소 10.10.10.40/24
+게이트웨이 10.10.10.1
+dns 8.8.8.8
+탭 확인 뒤로
+연결 활성화를 비활성화 했다가다시 활성화 
+종료 확인
+ip addr ip확인 
+
+검사점 (스냅샷)
+
+   
 
 
 
